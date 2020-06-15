@@ -1,0 +1,175 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    font: 14px/1.5 微软雅黑, arial, sans-serif;
+    width: 100%;
+    overflow: scroll;
+}
+/* 定宽布局 */
+.w{
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+.nav-container{
+    padding: 0;
+}
+
+#nav-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 66px;
+    color: #fff;
+    z-index: 9999;
+    transition: all .3s;
+}/*设置页眉*/
+#nav-header nav {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+ul {
+    list-style: none;
+}/*去掉列表样式*/
+#nav-header nav li {
+    border: 0;
+    display: inline-block;
+    height: 66px;
+    line-height: 66px;
+    font-size: 16px;
+    position: relative;
+    cursor: pointer;
+}
+#nav-header nav li a {
+    display: inline-block;
+    padding: 0 12px;
+    white-space: nowrap;
+    color: #F5F5F5;
+}
+a {
+    text-decoration: none;
+}/*去掉链接下划线*/
+
+/*通用头部导航*/
+.header .logo{
+    position: absolute;
+    left: 60px;
+    top: 34px;
+    display: block;
+    font-size: 36px;
+    color: 	#87CEFA;
+    font-weight: bold;
+}
+.header .search-con{
+    padding: 40px 0 30px 250px;
+}
+.header .search-con .search-input{
+    width: 550px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 15px;
+    border: 2px solid 	#87CEFA;
+    outline: none;
+}
+.header .search-con .search-btn{
+    position: absolute;
+    height: 40px;
+    width: 80px;
+}
+/*搜索按钮*/
+.btn{
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: middle;
+    border: none;
+    background: #87CEFA;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+/*article list*/
+#container {
+    position: relative;
+    max-width: 95%;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+.article {
+    box-shadow: 5px 5px 25px #dadada;
+    position: relative;
+    padding: 0 20px;
+    margin: 40px auto;
+    max-width: 950px;
+    background: #fff;
+    text-align: center;
+}
+.article>time {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    padding: 4px 5px 0;
+    color: #999;
+}
+.article h2 {
+    padding-bottom: .5em;
+    font-size: 1.75em;
+    line-height: 1.225;
+}
+.article>h2 {
+    padding: 35px 0 45px;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+#container a {
+    color: #333;
+}
+.article>span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #999;
+    padding: 3px 10px;
+    background: #f1f1f1;
+    font-size: 14px;
+}
+.article section {
+    text-align: left;
+    padding: 10px;
+    font-size: 16px;
+}
+.article blockquote {
+    padding: 0 15px;
+    color: #777;
+    border-left: 4px solid #ddd;
+}
+.article footer {
+    padding: 25px 0 20px;
+}
+.article footer a {
+    display: inline-block;
+    color: #18bc9c;
+    cursor: pointer;
+    padding: 4px 20px;
+    border-radius: 5px;
+    transition: all .5s;
+    border: 1px solid #18bc9c;
+}
+/*分页*/
+#container #page-part{
+    text-align: center;
+}

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jee.dao.CommentMapper" >
+
+  <resultMap id="ResultMapWithBLOBs" type="com.jee.pojo.Comment" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="article_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="comment_username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="comment_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="comment_content" jdbcType="LONGVARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, article_id, comment_username, comment_date,comment_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from jee_comment
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from jee_comment
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jee.pojo.Comment" >
+    insert into jee_comment (id, article_id, comment_username, 
+      comment_date, comment_content)
+    values (#{id,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, #{commentUsername,jdbcType=VARCHAR}, 
+      now(), #{commentContent,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jee.pojo.Comment" >
+    insert into jee_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="commentUsername != null" >
+        comment_username,
+      </if>
+      <if test="commentDate != null" >
+        comment_date,
+      </if>
+      <if test="commentContent != null" >
+        comment_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUsername != null" >
+        #{commentUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="commentDate != null" >
+        now(),
+      </if>
+      <if test="commentContent != null" >
+        #{commentContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jee.pojo.Comment" >
+    update jee_comment
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUsername != null" >
+        comment_username = #{commentUsername,jdbcType=VARCHAR},
+      </if>
+      <if test="commentDate != null" >
+        comment_date = now(),
+      </if>
+      <if test="commentContent != null" >
+        comment_content = #{commentContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.jee.pojo.Comment" >
+    update jee_comment
+    set article_id = #{articleId,jdbcType=INTEGER},
+      comment_username = #{commentUsername,jdbcType=VARCHAR},
+      comment_date = now(),
+      comment_content = #{commentContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jee.pojo.Comment" >
+    update jee_comment
+    set article_id = #{articleId,jdbcType=INTEGER},
+      comment_username = #{commentUsername,jdbcType=VARCHAR},
+      comment_date = now(),
+      comment_content = #{commentContent,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectAllCommentById" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List"/>
+    from jee_comment
+    where article_id = #{id}
+    ORDER BY id DESC
+    LIMIT #{offset}, #{limit}
+  </select>
+
+  <select id="selectCommentCount" resultType="int">
+    select count(*) from jee_comment
+  </select>
+
+</mapper>

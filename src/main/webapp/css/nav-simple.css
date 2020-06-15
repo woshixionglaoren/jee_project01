@@ -1,0 +1,32 @@
+/*导航栏 容器样式*/
+.nav-simple{
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+}
+/*logo样式*/
+.nav-simple .logo{
+    font-size: 26px;
+    font-weight: bold;
+    color: 	#87CEEB;
+    float: right;
+}
+
+/*blog_index 页面*/
+/*
+.nav{
+    background: #eee;
+    height: 30px;
+    line-height: 30px;
+}
+.mini-header__content {
+    box-sizing: border-box;
+    padding: 10px 24px;
+    line-height: 30px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}*/
